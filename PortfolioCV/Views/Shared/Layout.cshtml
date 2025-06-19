@@ -1,0 +1,45 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATAMANY</title>
+    <link rel="icon" type="image/x-icon" href="https://png.pngtree.com/element_our/png/20181008/cv-logo-template-icon-isolated-on-black-background-png_130993.jpg">
+    <link rel="stylesheet" href="~/Portfolio/style.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQHmh8wLCPdFTg/profile-displayphoto-shrink_200_200/B4DZWuSm4PHYAc-/0/1742385869888?e=2147483647&v=beta&t=CZOyzToR7f-vj60oXsDkozlJxqInnNFUgcm4ZUHqU7s" alt="Profil Resmi" class="profile-img">
+                <h2>Yiğit Ataman</h2>
+                <p>Software Developer</p>
+            </div>
+            <button class="menu-toggle" aria-label="Menüyü Aç/Kapat">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="menu" id="mainMenu">
+                <ul>
+                    <li><a href="~/Default/Index/">Hakkında</a></li>
+                    <li><a href="~/Default/Proje/">Projelerim</a></li>
+                    <li><a href="~/Default/Makale/">Makalelerim</a></li>
+                    <li><a href="~/Default/Blog/">Blog Yazılarım</a></li>
+                    <li><a href="~/Default/Sertifikalar/">Sertifikalarım</a></li>
+                    <li><a href="~/Default/Referanslar/">Referanslar</a></li>
+                    <li><a href="~/Default/Sosyal/">Sosyal Medya</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            @RenderBody()
+        </main>
+    </div>
+    <script src="~/Portfolio/script.js"></script>
+</body>
+</html>
