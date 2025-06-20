@@ -1,0 +1,31 @@
+﻿@model Kitap
+@{
+    ViewData["Title"] = "KitapEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="film-form-wrapper">
+    <form asp-action="KitapEkle" method="post" class="film-form" autocomplete="off">
+        <h2 class="film-form-title">Yeni Kitap Ekle</h2>
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="film-form-error">Lütfen tüm alanları eksiksiz ve doğru doldurun.</div>
+        }
+        <div class="film-form-group">
+            <label for="Ad">Kitap Adı</label>
+            <input type="text" id="Ad" name="Ad" class="film-form-input" value="@Model?.Ad" required />
+        </div>
+        <div class="film-form-group">
+            <label for="Yazar">Yazar</label>
+            <input type="text" id="Yazar" name="Yazar" class="film-form-input" value="@Model?.Yazar" required />
+        </div>
+        <div class="film-form-group">
+            <label for="ResimUrl">Resim Url</label>
+            <input type="url" id="ResimUrl" name="ResimUrl" class="film-form-input" value="@Model?.ResimUrl" required />
+        </div>
+        <button type="submit" class="film-form-btn">Kaydet</button>
+    </form>
+</div>
+
+
+

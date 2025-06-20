@@ -1,0 +1,33 @@
+﻿@model Admin
+@{
+    ViewData["Title"] = "MailGuncelle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="password-update-wrapper">
+    <div class="password-update-bg">
+        <form class="password-update-card" method="post" autocomplete="off">
+            <h2 class="password-update-title">E-Posta Değiştir</h2>
+            @if (ViewBag.ErrorMessage != null)
+            {
+                <div class="login-error">@ViewBag.ErrorMessage</div>
+            }
+            <div class="password-update-group">
+                <label for="OldMail">Eski E-Posta</label>
+                <input type="text" id="OldMail" name="OldMail" class="login-input" required />
+            </div>
+            <div class="password-update-group">
+                <label for="NewMail">Yeni E-Posta</label>
+                <input type="text" id="NewMail" name="NewMail" class="login-input" required />
+            </div>
+            <div class="password-update-group">
+                <label for="NewMail2">Yeni E-Posta (Tekrar)</label>
+                <input type="text" id="NewMail2" name="NewMail2" class="login-input" required />
+            </div>
+            <button type="submit" class="login-btn">Değiştir!</button>
+        </form>
+    </div>
+</div>
+
+
+

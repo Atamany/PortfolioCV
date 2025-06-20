@@ -31,4 +31,22 @@ window.addEventListener('DOMContentLoaded', () => {
             menu.classList.toggle('open');
         });
     }
+
+    // Admin paneli için açılır alt menü (submenu)
+    document.querySelectorAll('.has-submenu .submenu-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            const parent = this.closest('.has-submenu');
+            parent.classList.toggle('open');
+        });
+    });
+
+    // Admin paneli hamburger menü aç/kapa
+    const adminMenuToggle = document.querySelector('.menu-toggle');
+    const adminMenu = document.getElementById('adminMenu');
+    if(adminMenuToggle && adminMenu) {
+        adminMenuToggle.addEventListener('click', function() {
+            adminMenu.classList.toggle('open');
+        });
+    }
 }); 

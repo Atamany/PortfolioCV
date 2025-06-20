@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="dashboard-grid">
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
+        <div class="stat-title">Proje</div>
+        <div class="stat-value">@ViewBag.Proje</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-graduation-cap"></i></div>
+        <div class="stat-title">Makale</div>
+        <div class="stat-value">@ViewBag.Makale</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-blog"></i></div>
+        <div class="stat-title">Blog</div>
+        <div class="stat-value">@ViewBag.Blog</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-certificate"></i></div>
+        <div class="stat-title">Sertifika</div>
+        <div class="stat-value">@ViewBag.Sertifika</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-users"></i></div>
+        <div class="stat-title">Referans</div>
+        <div class="stat-value">@ViewBag.Referans</div>
+    </div>
+</div>
+<div class="dashboard-grid">
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-film"></i></div>
+        <div class="stat-title">Film</div>
+        <div class="stat-value">@ViewBag.Film</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-tv"></i></div>
+        <div class="stat-title">Dizi</div>
+        <div class="stat-value">@ViewBag.Dizi</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-book"></i></div>
+        <div class="stat-title">Kitap</div>
+        <div class="stat-value">@ViewBag.Kitap</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-podcast"></i></div>
+        <div class="stat-title">Podcast</div>
+        <div class="stat-value">@ViewBag.Podcast</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fab fa-youtube"></i></div>
+        <div class="stat-title">Tiyatro</div>
+        <div class="stat-value">@ViewBag.Tiyatro</div>
+    </div>
+</div>
+
+<div class="dashboard-actions">
+    <a href="/Default/Index" class="dashboard-btn">Ana Sayfa'ya Dön!</a>
+    <a href="/Hobby/Film" class="dashboard-btn">Hobi'ye Dön!</a>
+</div>
+
+<!-- FontAwesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+

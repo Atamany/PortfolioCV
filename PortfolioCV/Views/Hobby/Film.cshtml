@@ -1,0 +1,20 @@
+﻿@model List<Film>
+@{
+    ViewData["Title"] = "Film";
+    Layout = "~/Views/Shared/HobbyLayout.cshtml";
+}
+
+<h1>İzlediğim Filmler</h1>
+<div class="film-grid">
+    @foreach (var item in Model)
+    {
+        <a href="@item.IMDbUrl" target="_blank" class="film-poster">
+            <img src="@item.Poster" alt="@item.Ad">
+            <div class="film-overlay">
+                <div class="film-title">@item.Ad (@item.Yil)</div>
+                <div class="film-director">@item.Yonetmen</div>
+            </div>
+        </a>
+    }
+</div>
+

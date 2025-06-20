@@ -1,0 +1,35 @@
+﻿@model Podcast
+@{
+    ViewData["Title"] = "PodcastEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="film-form-wrapper">
+    <form asp-action="PodcastEkle" method="post" class="film-form" autocomplete="off">
+        <h2 class="film-form-title">Yeni Podcast Ekle</h2>
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="film-form-error">Lütfen tüm alanları eksiksiz ve doğru doldurun.</div>
+        }
+        <div class="film-form-group">
+            <label for="BolumAd">Bölüm Adı</label>
+            <input type="text" id="BolumAd" name="BolumAd" class="film-form-input" value="@Model?.BolumAd" required />
+        </div>
+        <div class="film-form-group">
+            <label for="PodcastAd">Podcast Adı</label>
+            <input type="text" id="PodcastAd" name="PodcastAd" class="film-form-input" value="@Model?.PodcastAd" required />
+        </div>
+        <div class="film-form-group">
+            <label for="PodcastUrl">Podcast Url</label>
+            <input type="url" id="PodcastUrl" name="PodcastUrl" class="film-form-input" value="@Model?.PodcastUrl" required />
+        </div>
+        <div class="film-form-group">
+            <label for="ResimUrl">Resim Url</label>
+            <input type="url" id="ResimUrl" name="ResimUrl" class="film-form-input" value="@Model?.ResimUrl" required />
+        </div>
+        <button type="submit" class="film-form-btn">Kaydet</button>
+    </form>
+</div>
+
+
+

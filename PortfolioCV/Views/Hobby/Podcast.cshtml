@@ -1,0 +1,21 @@
+﻿@model List<Podcast>
+@{
+    ViewData["Title"] = "Podcast";
+    Layout = "~/Views/Shared/HobbyLayout.cshtml";
+}
+
+<h1>Dinlediğim Podcastler</h1>
+<div class="film-grid podcast-grid">
+    @foreach (var item in Model)
+    {
+        <a href="@item.PodcastUrl" target="_blank" class="film-poster">
+            <img src="@item.ResimUrl" alt="@item.PodcastAd">
+            <div class="film-overlay">
+                <div class="film-title">@item.BolumAd</div>
+                <div class="film-director">@item.PodcastAd</div>
+            </div>
+        </a>
+    }
+</div>
+
+

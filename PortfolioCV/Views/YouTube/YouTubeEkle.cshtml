@@ -1,0 +1,33 @@
+﻿@model YouTube
+@{
+    ViewData["Title"] = "YouTubeEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="film-form-wrapper">
+    <form asp-action="YouTubeEkle" method="post" class="film-form" autocomplete="off">
+        <h2 class="film-form-title">Yeni Kanal Ekle</h2>
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="film-form-error">Lütfen tüm alanları eksiksiz ve doğru doldurun.</div>
+        }
+        <div class="film-form-group">
+            <label for="Ad">Kanal Adı</label>
+            <input type="text" id="Kanal" name="Kanal" class="film-form-input" value="@Model?.Kanal" required />
+        </div>
+        <div class="film-form-group">
+            <label for="KanalLink">Kanal Url</label>
+            <input type="url" id="KanalLink" name="KanalLink" class="film-form-input" value="@Model?.KanalLink" required />
+        </div>
+        <div class="film-form-group">
+            <label for="KanalResimUrl">Resim Url</label>
+            <input type="url" id="KanalResimUrl" name="KanalResimUrl" class="film-form-input" value="@Model?.KanalResimUrl" required />
+        </div>
+        <button type="submit" class="film-form-btn">Kaydet</button>
+    </form>
+</div>
+
+
+
+
+

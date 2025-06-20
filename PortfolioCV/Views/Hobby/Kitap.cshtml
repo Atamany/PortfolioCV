@@ -1,0 +1,22 @@
+﻿@model List<Kitap>
+@{
+    ViewData["Title"] = "Kitap";
+    Layout = "~/Views/Shared/HobbyLayout.cshtml";
+}
+
+<h1>Okuduğum Kitaplar</h1>
+<div class="film-grid kitap-grid">
+    @foreach (var item in Model)
+    {
+        <div class="film-poster">
+            <img src="@item.ResimUrl" alt="@item.Yazar - @item.Ad">
+            <div class="film-overlay">
+                <div class="film-title">@item.Ad</div>
+                <div class="film-director">@item.Yazar</div>
+            </div>
+        </div>
+    }
+</div>
+
+
+

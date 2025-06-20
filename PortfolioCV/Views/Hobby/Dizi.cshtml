@@ -1,0 +1,21 @@
+﻿@model List<Dizi>
+@{
+    ViewData["Title"] = "Dizi";
+    Layout = "~/Views/Shared/HobbyLayout.cshtml";
+}
+
+<h1>İzlediğim Diziler</h1>
+<div class="film-grid dizi-grid">
+    @foreach (var item in Model)
+    {
+        <a href="@item.IMDbUrl" target="_blank" class="film-poster">
+            <img src="@item.Poster" alt="@item.Ad">
+            <div class="film-overlay">
+                <div class="film-title">@item.Ad (@item.Yil)</div>
+            </div>
+        </a>
+    }
+</div>
+
+
+

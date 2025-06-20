@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="settings-wrapper">
+    <div class="settings-bg">
+        <div class="settings-blobs">
+            <div class="blob blob1"></div>
+            <div class="blob blob2"></div>
+            <div class="blob blob3"></div>
+        </div>
+        <div class="settings-content">
+            <h2 class="settings-title">Hesap Ayarları</h2>
+            <p class="settings-desc">Güvenliğinizi artırmak ve hesabınızı güncel tutmak için aşağıdaki işlemleri kullanabilirsiniz.</p>
+            <div class="settings-actions">
+                <a href="/Settings/SifreGuncelle" class="settings-btn">
+                    <i class="fas fa-key"></i>
+                    Şifre Değiştir!
+                </a>
+                <a href="/Settings/MailGuncelle" class="settings-btn">
+                    <i class="fas fa-envelope"></i>
+                    E-Posta Değiştir!
+                </a>
+            </div>
+            <div class="settings-motivation">
+                <i class="fas fa-shield-alt"></i> Hesabınızın güvenliği için şifrenizi ve e-posta adresinizi düzenli olarak güncelleyin!
+            </div>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+

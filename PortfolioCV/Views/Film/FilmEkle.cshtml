@@ -1,0 +1,37 @@
+﻿@model Film
+@{
+    ViewData["Title"] = "Film Ekle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="film-form-wrapper">
+    <form asp-action="FilmEkle" method="post" class="film-form" autocomplete="off">
+        <h2 class="film-form-title">Yeni Film Ekle</h2>
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="film-form-error">Lütfen tüm alanları eksiksiz ve doğru doldurun.</div>
+        }
+        <div class="film-form-group">
+            <label for="Ad">Film Adı</label>
+            <input type="text" id="Ad" name="Ad" class="film-form-input" value="@Model?.Ad" required />
+        </div>
+        <div class="film-form-group">
+            <label for="Yil">Yıl</label>
+            <input type="text" id="Yil" name="Yil" class="film-form-input" value="@Model?.Yil" required />
+        </div>
+        <div class="film-form-group">
+            <label for="Yonetmen">Yönetmen</label>
+            <input type="text" id="Yonetmen" name="Yonetmen" class="film-form-input" value="@Model?.Yonetmen" required />
+        </div>
+        <div class="film-form-group">
+            <label for="IMDbUrl">IMDb Url</label>
+            <input type="url" id="IMDbUrl" name="IMDbUrl" class="film-form-input" value="@Model?.IMDbUrl" required />
+        </div>
+        <div class="film-form-group">
+            <label for="Poster">Poster Url</label>
+            <input type="url" id="Poster" name="Poster" class="film-form-input" value="@Model?.Poster" required />
+        </div>
+        <button type="submit" class="film-form-btn">Kaydet</button>
+    </form>
+</div>
+

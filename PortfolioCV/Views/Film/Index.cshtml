@@ -1,0 +1,47 @@
+﻿@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<Film>
+@{
+    ViewData["Title"] = "Filmler";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    string search = Context.Request.Query["search"];
+}
+
+<div class="film-list-wrapper">
+    <div class="film-list-header">
+        <h2 class="film-list-title">Film Listesi</h2>
+        <div class="film-list-header-row">
+            <form method="get" class="film-search-form">
+                <input type="text" name="search" value="@search" class="film-search" placeholder="Film adıyla ara..." />
+                <button type="submit" class="film-search-btn"><i class="fas fa-search"></i></button>
+            </form>
+            <a href="/Film/FilmEkle" class="film-add-btn"><i class="fas fa-plus"></i> Film Ekle</a>
+        </div>
+    </div>
+    <div class="film-table-responsive">
+        <table class="film-table">
+            <thead>
+                <tr>
+                    <th>Film Adı (Yıl)</th>
+                    <th>Yönetmen</th>
+                    <th>Güncelle</th>
+                    <th>Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model){
+                    <tr>
+                        <td>@item.Ad (@item.Yil)</td>
+                        <td>@item.Yonetmen</td>
+                        <td><a href="/Film/FilmGuncelle/@item.FilmId" class="film-action-btn update"><i class="fas fa-edit"></i></a></td>
+                        <td><a href="/Film/FilmSil/@item.FilmId" class="film-action-btn delete"><i class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="film-pagination">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, search = search }))
+    </div>
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+

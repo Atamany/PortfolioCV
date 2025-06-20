@@ -1,0 +1,50 @@
+﻿@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<YouTube>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    string search = Context.Request.Query["search"];
+}
+
+<div class="film-list-wrapper">
+    <div class="film-list-header">
+        <h2 class="film-list-title">Kanal Listesi</h2>
+        <div class="film-list-header-row">
+            <form method="get" class="film-search-form">
+                <input type="text" name="search" value="@search" class="film-search" placeholder="Kanal adıyla ara..." />
+                <button type="submit" class="film-search-btn"><i class="fas fa-search"></i></button>
+            </form>
+            <a href="/YouTube/YouTubeEkle" class="film-add-btn"><i class="fas fa-plus"></i> Kanal Ekle</a>
+        </div>
+    </div>
+    <div class="film-table-responsive">
+        <table class="film-table">
+            <thead>
+                <tr>
+                    <th>Kanal Adı</th>
+                    <th>Güncelle</th>
+                    <th>Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Kanal</td>
+                        <td><a href="/YouTube/YouTubeGuncelle/@item.YouTubeId" class="film-action-btn update"><i class="fas fa-edit"></i></a></td>
+                        <td><a href="/YouTube/YouTubeSil/@item.YouTubeId" class="film-action-btn delete"><i class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="film-pagination">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, search = search }))
+    </div>
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+
+
+
+

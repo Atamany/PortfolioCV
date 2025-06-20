@@ -1,0 +1,31 @@
+﻿@model Admin
+@{
+    ViewData["Title"] = "SifreGuncelle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="password-update-wrapper">
+    <div class="password-update-bg">
+        <form class="password-update-card" method="post" autocomplete="off">
+            <h2 class="password-update-title">Şifre Değiştir</h2>
+            @if (ViewBag.ErrorMessage != null)
+            {
+                <div class="login-error">@ViewBag.ErrorMessage</div>
+            }
+            <div class="password-update-group">
+                <label for="OldPassword">Eski Şifre</label>
+                <input type="password" id="OldPassword" name="OldPassword" class="login-input" required />
+            </div>
+            <div class="password-update-group">
+                <label for="NewPassword">Yeni Şifre</label>
+                <input type="password" id="NewPassword" name="NewPassword" class="login-input" required />
+            </div>
+            <div class="password-update-group">
+                <label for="NewPassword2">Yeni Şifre (Tekrar)</label>
+                <input type="password" id="NewPassword2" name="NewPassword2" class="login-input" required />
+            </div>
+            <button type="submit" class="login-btn">Değiştir!</button>
+        </form>
+    </div>
+</div>
+

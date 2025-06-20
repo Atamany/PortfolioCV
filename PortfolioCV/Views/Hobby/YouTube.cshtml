@@ -1,0 +1,16 @@
+﻿@model List<YouTube>
+@{
+    ViewData["Title"] = "YouTube";
+    Layout = "~/Views/Shared/HobbyLayout.cshtml";
+}
+
+<h1>Takip Ettiğim YouTube Kanalları</h1>
+<div class="youtube-grid">
+    @foreach (var item in Model)
+    {
+        <a href="@item.KanalLink" target="_blank" class="youtube-card">
+            <img src="@item.KanalResimUrl" alt="@item.Kanal" class="youtube-logo">
+        <div class="youtube-channel">@item.Kanal</div>
+    </a>}
+</div>
+
