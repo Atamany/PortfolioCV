@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Referans>
+@{
     ViewData["Title"] = "Referanslar";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
@@ -6,40 +7,14 @@
 <div class="card">
     <div class="card-title">Referanslar</div>
     <div class="card-list reference-list">
-        <div class="card-item">
-            <div class="reference-header">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Referans 1">
-                <div class="reference-person">Mehmet Kaya - ABC Teknoloji (Takım Lideri)</div>
+        @foreach (var item in Model)
+        {
+            <div class="card-item">
+                <div class="reference-header">
+                <img src="@item.ResimUrl" alt="@item.AdSoyad">
+                <div class="reference-person">@item.AdSoyad - @item.Sirket (@item.Pozisyon)</div>
             </div>
-            <div class="reference-text">Yigit ile çalışmak büyük bir keyifti. Sorumluluk sahibi ve çözüm odaklı bir ekip arkadaşıdır. Projelerdeki titizliği ve iletişim becerileriyle öne çıkıyor. Herkese tavsiye ederim. Projelerdeki titizliği ve iletişim becerileriyle öne çıkıyor. Herkese tavsiye ederim.</div>
-        </div>
-        <div class="card-item">
-            <div class="reference-header">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Referans 1">
-                <div class="reference-person">Mehmet Kaya - ABC Teknoloji (Takım Lideri)</div>
-            </div>
-            <div class="reference-text">Yigit ile çalışmak büyük bir keyifti. Sorumluluk sahibi ve çözüm odaklı bir ekip arkadaşıdır. Projelerdeki titizliği ve iletişim becerileriyle öne çıkıyor. Herkese tavsiye ederim. Projelerdeki titizliği ve iletişim becerileriyle öne çıkıyor. Herkese tavsiye ederim.</div>
-        </div>
-        <div class="card-item">
-            <div class="reference-header">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Referans 1">
-                <div class="reference-person">Mehmet Kaya - ABC Teknoloji (Takım Lideri)</div>
-            </div>
-            <div class="reference-text">Yigit ile çalışmak büyük bir keyifti. Sorumluluk sahibi ve çözüm odaklı bir ekip arkadaşıdır. Projelerdeki titizliği ve iletişim becerileriyle öne çıkıyor. Herkese tavsiye ederim. Projelerdeki titizliği ve iletişim becerileriyle öne çıkıyor. Herkese tavsiye ederim.</div>
-        </div>
-        <div class="card-item">
-            <div class="reference-header">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Referans 1">
-                <div class="reference-person">Mehmet Kaya - ABC Teknoloji (Takım Lideri)</div>
-            </div>
-            <div class="reference-text">Yigit ile çalışmak büyük bir keyifti. Sorumluluk sahibi ve çözüm odaklı bir ekip arkadaşıdır. Projelerdeki titizliği ve iletişim becerileriyle öne çıkıyor. Herkese tavsiye ederim. Projelerdeki titizliği ve iletişim becerileriyle öne çıkıyor. Herkese tavsiye ederim.</div>
-        </div>
-        <div class="card-item">
-            <div class="reference-header">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Referans 1">
-                <div class="reference-person">Mehmet Kaya - ABC Teknoloji (Takım Lideri)</div>
-            </div>
-            <div class="reference-text">Yigit ile çalışmak büyük bir keyifti. Sorumluluk sahibi ve çözüm odaklı bir ekip arkadaşıdır. Projelerdeki titizliği ve iletişim becerileriyle öne çıkıyor. Herkese tavsiye ederim. Projelerdeki titizliği ve iletişim becerileriyle öne çıkıyor. Herkese tavsiye ederim.</div>
-        </div>
+            <div class="reference-text">@item.Metin</div>
+        </div>}
     </div>
 </div>

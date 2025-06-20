@@ -130,18 +130,33 @@ body {
     flex-wrap: wrap;
     gap: 24px;
 }
-.card-item {
+.card-list .card-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    min-width: 220px;
+    flex: 1 1 220px;
     background: #18181b;
     border-radius: 12px;
     box-shadow: 0 2px 8px #00000022;
-    padding: 20px 16px;
-    min-width: 220px;
-    flex: 1 1 220px;
+    padding: 18px 16px;
     color: #f3f3f3;
+    transition: box-shadow 0.2s;
+}
+.card-list .card-item img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 10px;
+    background: #fff;
+    margin-bottom: 0;
+    box-shadow: 0 1px 4px #00000011;
+}
+.card-list .card-info {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    transition: box-shadow 0.2s;
+    gap: 4px;
 }
 .card-item:hover {
     box-shadow: 0 4px 16px #00000044;
@@ -686,15 +701,25 @@ body {
     width: 100%;
 }
 .reference-list .card-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
     width: 100%;
     max-width: 100%;
+    background: #18181b;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #00000022;
+    padding: 18px 16px;
+    color: #f3f3f3;
+    transition: box-shadow 0.2s;
 }
-
 .reference-header {
     display: flex;
     align-items: center;
     gap: 18px;
-    margin-bottom: 8px;
+    width: 100%;
+    margin-bottom: 0;
 }
 .reference-header img {
     width: 56px;
@@ -713,6 +738,51 @@ body {
 .reference-text {
     color: #f3f3f3;
     font-size: 1rem;
-    margin-top: 4px;
+    margin-top: 8px;
     line-height: 1.5;
+    width: 100%;
+}
+@media (max-width: 700px) {
+    .reference-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+    .reference-header img {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+.sidebar-hobby-btn {
+    display: block;
+    width: 90%;
+    margin: 32px auto 0 auto;
+    padding: 14px 0;
+    background: linear-gradient(90deg, #fbbf24 60%, #f59e42 100%);
+    color: #23232b;
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-align: center;
+    border: none;
+    border-radius: 32px;
+    box-shadow: 0 2px 12px #fbbf2444;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+    cursor: pointer;
+}
+.sidebar-hobby-btn:hover, .sidebar-hobby-btn:focus {
+    background: linear-gradient(90deg, #f59e42 60%, #fbbf24 100%);
+    color: #fff;
+    transform: scale(1.04);
+    box-shadow: 0 4px 24px #fbbf24aa;
+}
+@media (max-width: 900px) {
+    .sidebar-hobby-btn {
+        width: 96%;
+        margin: 20px auto 0 auto;
+        font-size: 1.05rem;
+        padding: 12px 0;
+    }
 } 

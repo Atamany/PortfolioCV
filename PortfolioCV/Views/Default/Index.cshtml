@@ -1,4 +1,4 @@
-﻿
+﻿@model Hakkinda
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
@@ -7,111 +7,15 @@
 <div class="card">
     <div class="card-title">Hakkında</div>
     <div style="display: flex; flex-direction: column; gap: 12px;">
-        <div><strong>Ad Soyad:</strong> Yiğit Ataman</div>
-        <div><strong>Telefon:</strong> 0538 012 6920</div>
-        <div><strong>Mail:</strong> yigitataman1@gmail.com</div>
-        <div style="margin-top: 16px;">Selamlar, Ben Yiğit Ataman! Back-End programlama üzerine çalışan bir yazılım geliştiricisiyim. Biruni Üniversitesi'nde Bilgisayar Mühendisliği bölümünde, İstanbul Üniversitesi'nde Bilgisayar Programcılığı bölümünde, Acun Medya Akademi'de C# Eğitim Kampı bölümünde ve YEA Akademi'de okudum. AkademiQ Staj kapsamında MyStaff'ta staj yaptım, Acun Medya Akademi'nin Yazılım departmanında Kodlama Ekibi'nde aktif olarak çalıştım. .Net MVC ve .Net Core üzerine çeşitli projeler geliştirdim. Bu projelere "Projelerim" sekmesinden ulaşabilirsiniz. Öğrencilik hayatımda GDSC Biruni, TIEC Biruni, IEEE Biruni ve Biruni Girişimcilik Topluluğu kulüplerinde yönetim kadrosunda aktif olarak yer aldım. Boş vakitlerimde; dizi-film izlemeyi, kitap okumayı, klasik Türk müziği dinlemeyi, egzersiz yapmayı ve yüzmeyi severim. Lisanslı bir izci ve amatör bir futbolcuyum.</div>
+        <div><strong>Ad Soyad:</strong> @Model.AdSoyad</div>
+        <div><strong>Telefon:</strong> @Model.Telefon</div>
+        <div><strong>Mail:</strong> @Model.Email</div>
+        <div style="margin-top: 16px;">@Model.HakkindaMetni</div>
     </div>
 </div>
 <div class="card-row">
-    <div class="card">
-        <div class="card-title">Eğitim Hayatım</div>
-        <div class="card-list">
-            <div class="card-item">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Üniversite Logosu">
-                <div><strong>Üniversite:</strong> İstanbul Teknik Üniversitesi</div>
-                <div><strong>Bölüm:</strong> Bilgisayar Mühendisliği</div>
-                <div><strong>Yıl:</strong> 2017 - 2021</div>
-            </div>
-            <div class="card-item">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Üniversite Logosu">
-                <div><strong>Üniversite:</strong> İstanbul Teknik Üniversitesi</div>
-                <div><strong>Bölüm:</strong> Bilgisayar Mühendisliği</div>
-                <div><strong>Yıl:</strong> 2017 - 2021</div>
-            </div>
-            <div class="card-item">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Üniversite Logosu">
-                <div><strong>Üniversite:</strong> İstanbul Teknik Üniversitesi</div>
-                <div><strong>Bölüm:</strong> Bilgisayar Mühendisliği</div>
-                <div><strong>Yıl:</strong> 2017 - 2021</div>
-            </div>
-            <div class="card-item">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Üniversite Logosu">
-                <div><strong>Üniversite:</strong> İstanbul Teknik Üniversitesi</div>
-                <div><strong>Bölüm:</strong> Bilgisayar Mühendisliği</div>
-                <div><strong>Yıl:</strong> 2017 - 2021</div>
-            </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-title">Deneyim</div>
-        <div class="card-list">
-            <div class="card-item">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Şirket Logosu">
-                <div><strong>Şirket:</strong> ABC Teknoloji</div>
-                <div><strong>Pozisyon:</strong> Yazılım Geliştirici</div>
-                <div><strong>Yıl:</strong> 2021 - Devam Ediyor</div>
-            </div>
-            <div class="card-item">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Şirket Logosu">
-                <div><strong>Şirket:</strong> ABC Teknoloji</div>
-                <div><strong>Pozisyon:</strong> Yazılım Geliştirici</div>
-                <div><strong>Yıl:</strong> 2021 - Devam Ediyor</div>
-            </div>
-            <div class="card-item">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Şirket Logosu">
-                <div><strong>Şirket:</strong> ABC Teknoloji</div>
-                <div><strong>Pozisyon:</strong> Yazılım Geliştirici</div>
-                <div><strong>Yıl:</strong> 2021 - Devam Ediyor</div>
-            </div>
-            <div class="card-item">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Şirket Logosu">
-                <div><strong>Şirket:</strong> ABC Teknoloji</div>
-                <div><strong>Pozisyon:</strong> Yazılım Geliştirici</div>
-                <div><strong>Yıl:</strong> 2021 - Devam Ediyor</div>
-            </div>
-            <div class="card-item">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Şirket Logosu">
-                <div><strong>Şirket:</strong> ABC Teknoloji</div>
-                <div><strong>Pozisyon:</strong> Yazılım Geliştirici</div>
-                <div><strong>Yıl:</strong> 2021 - Devam Ediyor</div>
-            </div>
-            <div class="card-item">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Şirket Logosu">
-                <div><strong>Şirket:</strong> ABC Teknoloji</div>
-                <div><strong>Pozisyon:</strong> Yazılım Geliştirici</div>
-                <div><strong>Yıl:</strong> 2021 - Devam Ediyor</div>
-            </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-title">Gönüllü Faaliyetler</div>
-        <div class="card-list">
-            <div class="card-item">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Kulüp Logosu">
-                <div><strong>Kulüp:</strong> ITU Bilgisayar Kulübü</div>
-                <div><strong>Pozisyon:</strong> Yönetim Kurulu Üyesi</div>
-                <div><strong>Yıl:</strong> 2019 - 2020</div>
-            </div>
-            <div class="card-item">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Kulüp Logosu">
-                <div><strong>Kulüp:</strong> ITU Bilgisayar Kulübü</div>
-                <div><strong>Pozisyon:</strong> Yönetim Kurulu Üyesi</div>
-                <div><strong>Yıl:</strong> 2019 - 2020</div>
-            </div>
-            <div class="card-item">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Kulüp Logosu">
-                <div><strong>Kulüp:</strong> ITU Bilgisayar Kulübü</div>
-                <div><strong>Pozisyon:</strong> Yönetim Kurulu Üyesi</div>
-                <div><strong>Yıl:</strong> 2019 - 2020</div>
-            </div>
-            <div class="card-item">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Kulüp Logosu">
-                <div><strong>Kulüp:</strong> ITU Bilgisayar Kulübü</div>
-                <div><strong>Pozisyon:</strong> Yönetim Kurulu Üyesi</div>
-                <div><strong>Yıl:</strong> 2019 - 2020</div>
-            </div>
-        </div>
-    </div>
+    @await Component.InvokeAsync("_DefaultIndexEgitimComponentPartial")
+    @await Component.InvokeAsync("_DefaultIndexDeneyimComponentPartial")
+    @await Component.InvokeAsync("_DefaultIndexGonulluComponentPartial")
 </div>
 

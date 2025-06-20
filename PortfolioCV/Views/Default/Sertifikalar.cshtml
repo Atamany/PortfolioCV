@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Sertifika>
+@{
     ViewData["Title"] = "Sertifikalar";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
@@ -7,22 +8,16 @@
 <div class="card">
     <div class="card-title">Sertifikalarım</div>
     <div class="certificate-list">
-        <div class="card-item certificate-item">
-            <div class="certificate-img-container">
-                <img src="sertifika1.png" alt="Sertifika 1">
+        @foreach (var item in Model)
+        {
+            <div class="card-item certificate-item">
+                <div class="certificate-img-container">
+                <img src="@item.ResimUrl" alt="@item.Ad">
                 <div class="certificate-overlay">
-                    <div>Murat Yücedağ - Full Stack Web Development (Udemy)</div>
+                    <div>@item.Ad</div>
                 </div>
             </div>
-        </div>
-        <div class="card-item certificate-item">
-            <div class="certificate-img-container">
-                <img src="sertifika2.png" alt="Sertifika 2">
-                <div class="certificate-overlay">
-                    <div>Murat Yücedağ - Full Stack Web Development (Udemy)</div>
-                </div>
-            </div>
-        </div>
+        </div>}
     </div>
 </div>
 

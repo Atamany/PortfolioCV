@@ -1,0 +1,17 @@
+﻿@model List<Egitim>
+<div class="card">
+    <div class="card-title">Eğitim Hayatım</div>
+    <div class="card-list">
+        @foreach (var item in Model)
+        {
+            <div class="card-item">
+                <img src="@item.OkulLogo" alt="Üniversite Logosu">
+                <div class="card-info">
+                    <div><strong> @item.OkulAdi</strong></div>
+                    <div><strong>Bölüm:</strong> @item.Bolum</div>
+                    <div><strong>Yıl:</strong> @item.Yil</div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

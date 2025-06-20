@@ -1,33 +1,20 @@
-﻿
+﻿@model List<Makale>
 @{
     ViewData["Title"] = "Makale";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<h1>Projelerim</h1>
+
+<h1>Makalelerim</h1>
 <div class="project-grid">
-    <div class="project-card">
-        <div class="project-image-container">
-            <img src="https://picsum.photos/400/250?random=1" alt="Proje 1" class="project-image">
-            <div class="project-title-overlay">Proje Başlığı 1</div>
+    @foreach (var item in Model)
+    {
+        <div class="project-card">
+            <div class="project-image-container">
+                <img src="@item.ResimUrl" alt="@item.Baslik" class="project-image">
+                <div class="project-title-overlay">@item.Baslik</div>
+            </div>
+            <a href="@item.MakaleUrl" class="project-btn">Makaleye Git</a>
         </div>
-        <a href="#" class="project-btn">Makaleye Git</a>
-    </div>
-    <div class="project-card">
-        <div class="project-image-container">
-            <img src="https://picsum.photos/400/250?random=2" alt="Proje 2" class="project-image">
-            <div class="project-title-overlay">Proje Başlığı 2</div>
-        </div>
-        <a href="#" class="project-btn">Makaleye Git</a>
-    </div>
-    <div class="project-card">
-        <div class="project-image-container">
-            <img src="https://picsum.photos/400/250?random=3" alt="Proje 3" class="project-image">
-            <div class="project-title-overlay">Proje Başlığı 3</div>
-        </div>
-        <a href="#" class="project-btn">Makaleye Git</a>
-    </div>
+    }
 </div>
-
-
-

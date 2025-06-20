@@ -1,0 +1,17 @@
+﻿@model List<Gonullu>
+<div class="card">
+    <div class="card-title">Gönüllü Faaliyetler</div>
+    <div class="card-list">
+        @foreach (var item in Model)
+        {
+            <div class="card-item">
+                <img src="@item.KulupLogo" alt="@item.KulupAdi">
+            <div class="card-info">
+                    <div><strong>@item.KulupAdi</strong></div>
+                <div><strong>Pozisyon:</strong> @item.Gorev</div>
+                <div><strong>Yıl:</strong> @item.Yil</div>
+            </div>
+        </div>
+        }
+    </div>
+</div>

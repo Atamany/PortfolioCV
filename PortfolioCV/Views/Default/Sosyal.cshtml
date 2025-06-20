@@ -1,65 +1,16 @@
-﻿@{
+﻿@model List<Sosyal>
+@{
     ViewData["Title"] = "Sosyal";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
 <h1>Sosyal</h1>
 <div class="social-btn-grid">
-    <a href="https://linkedin.com/in/yigityilmaz" target="_blank" class="social-btn">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="LinkedIn">
-        <span>LinkedIn</span>
-    </a>
-    <a href="https://github.com/yigityilmaz" target="_blank" class="social-btn">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="GitHub">
-        <span>GitHub</span>
-    </a>
-    <a href="https://twitter.com/yigityilmaz" target="_blank" class="social-btn">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Twitter">
-        <span>Twitter</span>
-    </a>
-    <a href="https://instagram.com/yigityilmaz" target="_blank" class="social-btn">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Instagram">
-        <span>Instagram</span>
-    </a>
-    <a href="https://facebook.com/yigityilmaz" target="_blank" class="social-btn">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Facebook">
-        <span>Facebook</span>
-    </a><a href="https://facebook.com/yigityilmaz" target="_blank" class="social-btn">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Facebook">
-        <span>Facebook</span>
-    </a><a href="https://facebook.com/yigityilmaz" target="_blank" class="social-btn">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Facebook">
-        <span>Facebook</span>
-    </a><a href="https://facebook.com/yigityilmaz" target="_blank" class="social-btn">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Facebook">
-        <span>Facebook</span>
-    </a><a href="https://facebook.com/yigityilmaz" target="_blank" class="social-btn">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Facebook">
-        <span>Facebook</span>
-    </a><a href="https://facebook.com/yigityilmaz" target="_blank" class="social-btn">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Facebook">
-        <span>Facebook</span>
-    </a><a href="https://facebook.com/yigityilmaz" target="_blank" class="social-btn">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Facebook">
-        <span>Facebook</span>
-    </a><a href="https://facebook.com/yigityilmaz" target="_blank" class="social-btn">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Facebook">
-        <span>Facebook</span>
-    </a><a href="https://facebook.com/yigityilmaz" target="_blank" class="social-btn">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Facebook">
-        <span>Facebook</span>
-    </a><a href="https://facebook.com/yigityilmaz" target="_blank" class="social-btn">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Facebook">
-        <span>Facebook</span>
-    </a><a href="https://facebook.com/yigityilmaz" target="_blank" class="social-btn">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Facebook">
-        <span>Facebook</span>
-    </a><a href="https://facebook.com/yigityilmaz" target="_blank" class="social-btn">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Facebook">
-        <span>Facebook</span>
-    </a><a href="https://facebook.com/yigityilmaz" target="_blank" class="social-btn">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREd7QZTsmToQgitsRy-y6p7ZhnmNcqr0l-Sw&s" alt="Facebook">
-        <span>Facebook</span>
-    </a>
+    @foreach (var item in Model)
+    {
+        <a href="@item.HesapUrl" target="_blank" class="social-btn">
+            <img src="@item.PlatformLogo" alt="@item.Platform">
+        <span>@item.Platform</span>
+    </a>}
 </div>
 
