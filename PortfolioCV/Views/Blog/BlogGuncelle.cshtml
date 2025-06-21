@@ -1,0 +1,34 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "BlogGuncelle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="film-form-wrapper">
+    <form asp-action="BlogGuncelle" method="post" class="film-form" autocomplete="off">
+        <h2 class="film-form-title">Blog Güncelle</h2>
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="film-form-error">Lütfen tüm alanları eksiksiz ve doğru doldurun.</div>
+        }
+        <input type="hidden" asp-for="BlogId" class="film-form-input" />
+        <div class="film-form-group">
+            <label for="Baslik">Blog Adı</label>
+            <input type="text" asp-for="Baslik" class="film-form-input" value="@Model?.Baslik" required />
+        </div>
+        <div class="film-form-group">
+            <label for="BlogUrl">Blog Url</label>
+            <input type="url" asp-for="BlogUrl" class="film-form-input" value="@Model?.BlogUrl" required />
+        </div>
+        <div class="film-form-group">
+            <label for="ResimUrl">Resim Url</label>
+            <input type="url" asp-for="ResimUrl" class="film-form-input" value="@Model?.ResimUrl" required />
+        </div>
+        <button type="submit" class="film-form-btn">Kaydet</button>
+    </form>
+</div>
+
+
+
+
+

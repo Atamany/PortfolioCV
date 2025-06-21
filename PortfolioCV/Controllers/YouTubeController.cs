@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PortfolioCV.DAL.Context;
 using PortfolioCV.DAL.Entities;
 using X.PagedList.Extensions;
 
 namespace PortfolioCV.Controllers
 {
+    [Authorize]
     public class YouTubeController : Controller
     {
         PortfolioCVContext db = new PortfolioCVContext();

@@ -2,76 +2,75 @@
 using Microsoft.AspNetCore.Mvc;
 using PortfolioCV.DAL.Context;
 using PortfolioCV.DAL.Entities;
-using X.PagedList;
 using X.PagedList.Extensions;
 
 namespace PortfolioCV.Controllers
 {
     [Authorize]
-    public class FilmController : Controller
+    public class BlogController : Controller
     {
         PortfolioCVContext db = new PortfolioCVContext();
         [HttpGet]
         public IActionResult Index(int page = 1, string search = "")
         {
-            var filmler = db.Films.AsQueryable();
+            var bloglar = db.Blogs.AsQueryable();
 
             if (!string.IsNullOrEmpty(search))
-                filmler = filmler.Where(f => f.Ad.Contains(search));
+                bloglar = bloglar.Where(f => f.Baslik.Contains(search));
 
-            var pagedList = filmler
-                .OrderByDescending(f => f.FilmId)
+            var pagedList = bloglar
+                .OrderByDescending(f => f.BlogId)
                 .ToPagedList(page, 20);
 
             return View(pagedList);
         }
         [HttpGet]
-        public IActionResult FilmEkle()
+        public IActionResult BlogEkle()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult FilmEkle(Film film)
+        public IActionResult BlogEkle(Blog blog)
         {
             if (ModelState.IsValid)
             {
-                db.Films.Add(film);
+                db.Blogs.Add(blog);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(film);
+            return View(blog);
         }
         [HttpGet]
-        public IActionResult FilmSil(int id)
+        public IActionResult BlogSil(int id)
         {
-            var film = db.Films.Find(id);
-            if (film != null)
+            var blog = db.Blogs.Find(id);
+            if (blog != null)
             {
-                db.Films.Remove(film);
+                db.Blogs.Remove(blog);
                 db.SaveChanges();
             }
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public IActionResult FilmGuncelle(int id)
+        public IActionResult BlogGuncelle(int id)
         {
-            var film = db.Films.Find(id);
-            if (film == null)
+            var blog = db.Blogs.Find(id);
+            if (blog == null)
             {
                 return NotFound();
             }
-            return View(film);
+            return View(blog);
         }
         [HttpPost]
-        public async Task<IActionResult> FilmGuncelle(Film film)
+        public async Task<IActionResult> BlogGuncelle(Blog blog)
         {
             if (ModelState.IsValid)
             {
-                db.Films.Update(film);
+                db.Blogs.Update(blog);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(film);
+            return View(blog);
         }
     }
 }

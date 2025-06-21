@@ -2,76 +2,75 @@
 using Microsoft.AspNetCore.Mvc;
 using PortfolioCV.DAL.Context;
 using PortfolioCV.DAL.Entities;
-using X.PagedList;
 using X.PagedList.Extensions;
 
 namespace PortfolioCV.Controllers
 {
     [Authorize]
-    public class FilmController : Controller
+    public class SertifikaController : Controller
     {
         PortfolioCVContext db = new PortfolioCVContext();
         [HttpGet]
         public IActionResult Index(int page = 1, string search = "")
         {
-            var filmler = db.Films.AsQueryable();
+            var sertifikalar = db.Sertifikas.AsQueryable();
 
             if (!string.IsNullOrEmpty(search))
-                filmler = filmler.Where(f => f.Ad.Contains(search));
+                sertifikalar = sertifikalar.Where(f => f.Ad.Contains(search));
 
-            var pagedList = filmler
-                .OrderByDescending(f => f.FilmId)
+            var pagedList = sertifikalar
+                .OrderByDescending(f => f.SertifikaId)
                 .ToPagedList(page, 20);
 
             return View(pagedList);
         }
         [HttpGet]
-        public IActionResult FilmEkle()
+        public IActionResult SertifikaEkle()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult FilmEkle(Film film)
+        public IActionResult SertifikaEkle(Sertifika sertifika)
         {
             if (ModelState.IsValid)
             {
-                db.Films.Add(film);
+                db.Sertifikas.Add(sertifika);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(film);
+            return View(sertifika);
         }
         [HttpGet]
-        public IActionResult FilmSil(int id)
+        public IActionResult SertifikaSil(int id)
         {
-            var film = db.Films.Find(id);
-            if (film != null)
+            var sertifika = db.Sertifikas.Find(id);
+            if (sertifika != null)
             {
-                db.Films.Remove(film);
+                db.Sertifikas.Remove(sertifika);
                 db.SaveChanges();
             }
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public IActionResult FilmGuncelle(int id)
+        public IActionResult SertifikaGuncelle(int id)
         {
-            var film = db.Films.Find(id);
-            if (film == null)
+            var sertifika = db.Sertifikas.Find(id);
+            if (sertifika == null)
             {
                 return NotFound();
             }
-            return View(film);
+            return View(sertifika);
         }
         [HttpPost]
-        public async Task<IActionResult> FilmGuncelle(Film film)
+        public async Task<IActionResult> SertifikaGuncelle(Sertifika sertifika)
         {
             if (ModelState.IsValid)
             {
-                db.Films.Update(film);
+                db.Sertifikas.Update(sertifika);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(film);
+            return View(sertifika);
         }
     }
 }

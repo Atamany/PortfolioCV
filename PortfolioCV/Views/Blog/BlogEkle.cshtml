@@ -1,0 +1,32 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "BlogEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="film-form-wrapper">
+    <form asp-action="BlogEkle" method="post" class="film-form" autocomplete="off">
+        <h2 class="film-form-title">Yeni Blog Ekle</h2>
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="film-form-error">Lütfen tüm alanları eksiksiz ve doğru doldurun.</div>
+        }
+        <div class="film-form-group">
+            <label for="Baslik">Blog Adı</label>
+            <input type="text" id="Baslik" name="Baslik" class="film-form-input" value="@Model?.Baslik" required />
+        </div>
+        <div class="film-form-group">
+            <label for="BlogUrl">Blog Url</label>
+            <input type="url" id="BlogUrl" name="BlogUrl" class="film-form-input" value="@Model?.BlogUrl" required />
+        </div>
+        <div class="film-form-group">
+            <label for="ResimUrl">Resim Url</label>
+            <input type="url" id="ResimUrl" name="ResimUrl" class="film-form-input" value="@Model?.ResimUrl" required />
+        </div>
+        <button type="submit" class="film-form-btn">Kaydet</button>
+    </form>
+</div>
+
+
+
+

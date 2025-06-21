@@ -1,0 +1,37 @@
+﻿@model Egitim
+@{
+    ViewData["Title"] = "EgitimGuncelle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="film-form-wrapper">
+    <form asp-action="EgitimGuncelle" method="post" class="film-form" autocomplete="off">
+        <h2 class="film-form-title">Eğitim Güncelle</h2>
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="film-form-error">Lütfen tüm alanları eksiksiz ve doğru doldurun.</div>
+        }
+        <input type="hidden" asp-for="EgitimId" class="film-form-input" />
+        <div class="film-form-group">
+            <label for="OkulAdi">Kurum Adı</label>
+            <input type="text" asp-for="OkulAdi" class="film-form-input" value="@Model?.OkulAdi" required />
+        </div>
+        <div class="film-form-group">
+            <label for="Bolum">Bölüm Adı</label>
+            <input type="text" asp-for="Bolum" class="film-form-input" value="@Model?.Bolum" required />
+        </div>
+        <div class="film-form-group">
+            <label for="Yil">Yıl</label>
+            <input type="text" asp-for="Yil" class="film-form-input" value="@Model?.Yil" required />
+        </div>
+        <div class="film-form-group">
+            <label for="OkulLogo">Logo Url</label>
+            <input type="url" asp-for="OkulLogo" class="film-form-input" value="@Model?.OkulLogo" required />
+        </div>
+        <button type="submit" class="film-form-btn">Kaydet</button>
+    </form>
+</div>
+
+
+
+

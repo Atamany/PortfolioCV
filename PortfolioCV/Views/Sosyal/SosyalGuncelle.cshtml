@@ -1,0 +1,35 @@
+﻿@model Sosyal
+@{
+    ViewData["Title"] = "SosyalGuncelle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="film-form-wrapper">
+    <form asp-action="SosyalGuncelle" method="post" class="film-form" autocomplete="off">
+        <h2 class="film-form-title">Sosyal Medya Güncelle</h2>
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="film-form-error">Lütfen tüm alanları eksiksiz ve doğru doldurun.</div>
+        }
+        <input type="hidden" asp-for="SosyalId" class="film-form-input" />
+        <div class="film-form-group">
+            <label for="Platform">Sosyal Medya Adı</label>
+            <input type="text" asp-for="Platform" class="film-form-input" value="@Model?.Platform" required />
+        </div>
+        <div class="film-form-group">
+            <label for="HesapUrl">Sosyal Medya Url</label>
+            <input type="url" asp-for="HesapUrl" class="film-form-input" value="@Model?.HesapUrl" required />
+        </div>
+        <div class="film-form-group">
+            <label for="PlatformLogo">Logo Url</label>
+            <input type="url" asp-for="PlatformLogo" class="film-form-input" value="@Model?.PlatformLogo" required />
+        </div>
+        <button type="submit" class="film-form-btn">Kaydet</button>
+    </form>
+</div>
+
+
+
+
+
+

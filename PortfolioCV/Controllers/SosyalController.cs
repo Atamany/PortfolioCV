@@ -2,76 +2,74 @@
 using Microsoft.AspNetCore.Mvc;
 using PortfolioCV.DAL.Context;
 using PortfolioCV.DAL.Entities;
-using X.PagedList;
 using X.PagedList.Extensions;
 
 namespace PortfolioCV.Controllers
 {
     [Authorize]
-    public class FilmController : Controller
+    public class SosyalController : Controller
     {
         PortfolioCVContext db = new PortfolioCVContext();
         [HttpGet]
         public IActionResult Index(int page = 1, string search = "")
         {
-            var filmler = db.Films.AsQueryable();
+            var sosyaller = db.Sosyals.AsQueryable();
 
             if (!string.IsNullOrEmpty(search))
-                filmler = filmler.Where(f => f.Ad.Contains(search));
+                sosyaller = sosyaller.Where(f => f.Platform.Contains(search));
 
-            var pagedList = filmler
-                .OrderByDescending(f => f.FilmId)
+            var pagedList = sosyaller
                 .ToPagedList(page, 20);
 
             return View(pagedList);
         }
         [HttpGet]
-        public IActionResult FilmEkle()
+        public IActionResult SosyalEkle()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult FilmEkle(Film film)
+        public IActionResult SosyalEkle(Sosyal sosyal)
         {
             if (ModelState.IsValid)
             {
-                db.Films.Add(film);
+                db.Sosyals.Add(sosyal);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(film);
+            return View(sosyal);
         }
         [HttpGet]
-        public IActionResult FilmSil(int id)
+        public IActionResult SosyalSil(int id)
         {
-            var film = db.Films.Find(id);
-            if (film != null)
+            var sosyal = db.Sosyals.Find(id);
+            if (sosyal != null)
             {
-                db.Films.Remove(film);
+                db.Sosyals.Remove(sosyal);
                 db.SaveChanges();
             }
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public IActionResult FilmGuncelle(int id)
+        public IActionResult SosyalGuncelle(int id)
         {
-            var film = db.Films.Find(id);
-            if (film == null)
+            var sosyal = db.Sosyals.Find(id);
+            if (sosyal == null)
             {
                 return NotFound();
             }
-            return View(film);
+            return View(sosyal);
         }
         [HttpPost]
-        public async Task<IActionResult> FilmGuncelle(Film film)
+        public async Task<IActionResult> SosyalGuncelle(Sosyal sosyal)
         {
             if (ModelState.IsValid)
             {
-                db.Films.Update(film);
+                db.Sosyals.Update(sosyal);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(film);
+            return View(sosyal);
         }
     }
 }

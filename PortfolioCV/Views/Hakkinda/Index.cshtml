@@ -1,0 +1,34 @@
+﻿@model Hakkinda
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="film-form-wrapper">
+    <form asp-action="Index" method="post" class="film-form" autocomplete="off">
+        <h2 class="film-form-title">Hakkında Güncelle</h2>
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="film-form-error">Lütfen tüm alanları eksiksiz ve doğru doldurun.</div>
+        }
+        <input type="hidden" asp-for="HakkindaId" class="film-form-input" />
+        <div class="film-form-group">
+            <label for="AdSoyad">Ad - Soyad</label>
+            <input type="text" asp-for="AdSoyad" class="film-form-input" value="@Model?.AdSoyad" required />
+        </div>
+        <div class="film-form-group">
+            <label for="Telefon">Telefon</label>
+            <input type="text" asp-for="Telefon" class="film-form-input" value="@Model?.Telefon" required />
+        </div>
+        <div class="film-form-group">
+            <label for="Email">E-Posta</label>
+            <input type="email" asp-for="Email" class="film-form-input" value="@Model?.Email" required />
+        </div>
+        <div class="film-form-group">
+            <label for="HakkindaMetni">Hakkında</label>
+<textarea rows="15" asp-for="HakkindaMetni" class="film-form-input" required>@Model?.HakkindaMetni</textarea>
+        </div>
+        <button type="submit" class="film-form-btn">Kaydet</button>
+    </form>
+</div>
+

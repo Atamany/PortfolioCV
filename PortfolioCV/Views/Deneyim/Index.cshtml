@@ -1,0 +1,40 @@
+﻿@model List<Deneyim>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="film-list-wrapper">
+    <div class="film-list-header">
+        <div class="film-list-header-row">
+            <h2 class="film-list-title">Deneyim Listesi</h2>
+            <a href="/Deneyim/DeneyimEkle" class="film-add-btn"><i class="fas fa-plus"></i> Deneyim Ekle</a>
+        </div>
+    </div>
+    <div class="film-table-responsive">
+        <table class="film-table">
+            <thead>
+                <tr>
+                    <th>Deneyim (Yıl)</th>
+                    <th>Güncelle</th>
+                    <th>Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.SirketAdi - @item.Pozisyon (@item.Yil)</td>
+                        <td><a href="/Deneyim/DeneyimGuncelle/@item.DeneyimId" class="film-action-btn update"><i class="fas fa-edit"></i></a></td>
+                        <td><a href="/Deneyim/DeneyimSil/@item.DeneyimId" class="film-action-btn delete"><i class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+
+
+

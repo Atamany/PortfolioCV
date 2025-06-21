@@ -1,0 +1,38 @@
+﻿@model Referans
+@{
+    ViewData["Title"] = "ReferansGuncelle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="film-form-wrapper">
+    <form asp-action="ReferansGuncelle" method="post" class="film-form" autocomplete="off">
+        <h2 class="film-form-title">Referans Güncelle</h2>
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="film-form-error">Lütfen tüm alanları eksiksiz ve doğru doldurun.</div>
+        }
+        <input type="hidden" asp-for="ReferansId" class="film-form-input" />
+        <div class="film-form-group">
+            <label for="AdSoyad">Referans Adı</label>
+            <input type="text" asp-for="AdSoyad" class="film-form-input" value="@Model?.AdSoyad" required />
+        </div>
+        <div class="film-form-group">
+            <label for="Sirket">Şirket</label>
+            <input type="text" asp-for="Sirket" class="film-form-input" value="@Model?.Sirket" required />
+        </div>
+        <div class="film-form-group">
+            <label for="Pozisyon">Pozisyon</label>
+            <input type="text" asp-for="Pozisyon" class="film-form-input" value="@Model?.Pozisyon" required />
+        </div>
+        <div class="film-form-group">
+            <label for="Metin">Metin</label>
+<textarea rows="15" asp-for="Metin" class="film-form-input" required>@Model?.Metin</textarea>
+        </div>
+        <div class="film-form-group">
+            <label for="ResimUrl">Resim Url</label>
+            <input type="url" asp-for="ResimUrl" class="film-form-input" value="@Model?.ResimUrl" required />
+        </div>
+        <button type="submit" class="film-form-btn">Kaydet</button>
+    </form>
+</div>
+

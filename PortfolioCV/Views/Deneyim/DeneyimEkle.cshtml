@@ -1,0 +1,36 @@
+﻿@model Deneyim
+@{
+    ViewData["Title"] = "DeneyimEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="film-form-wrapper">
+    <form asp-action="DeneyimEkle" method="post" class="film-form" autocomplete="off">
+        <h2 class="film-form-title">Yeni Deneyim Ekle</h2>
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="film-form-error">Lütfen tüm alanları eksiksiz ve doğru doldurun.</div>
+        }
+        <div class="film-form-group">
+            <label for="SirketAdi">Kurum Adı</label>
+            <input type="text" id="SirketAdi" name="SirketAdi" class="film-form-input" value="@Model?.SirketAdi" required />
+        </div>
+        <div class="film-form-group">
+            <label for="Pozisyon">Pozisyon</label>
+            <input type="text" id="Pozisyon" name="Pozisyon" class="film-form-input" value="@Model?.Pozisyon" required />
+        </div>
+        <div class="film-form-group">
+            <label for="Yil">Yıl</label>
+            <input type="text" id="Yil" name="Yil" class="film-form-input" value="@Model?.Yil" required />
+        </div>
+        <div class="film-form-group">
+            <label for="SirketLogo">Logo Url</label>
+            <input type="url" id="SirketLogo" name="SirketLogo" class="film-form-input" value="@Model?.SirketLogo" required />
+        </div>
+        <button type="submit" class="film-form-btn">Kaydet</button>
+    </form>
+</div>
+
+
+
+

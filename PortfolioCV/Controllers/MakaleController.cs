@@ -2,76 +2,75 @@
 using Microsoft.AspNetCore.Mvc;
 using PortfolioCV.DAL.Context;
 using PortfolioCV.DAL.Entities;
-using X.PagedList;
 using X.PagedList.Extensions;
 
 namespace PortfolioCV.Controllers
 {
     [Authorize]
-    public class FilmController : Controller
+    public class MakaleController : Controller
     {
         PortfolioCVContext db = new PortfolioCVContext();
         [HttpGet]
         public IActionResult Index(int page = 1, string search = "")
         {
-            var filmler = db.Films.AsQueryable();
+            var makaleler = db.Makales.AsQueryable();
 
             if (!string.IsNullOrEmpty(search))
-                filmler = filmler.Where(f => f.Ad.Contains(search));
+                makaleler = makaleler.Where(f => f.Baslik.Contains(search));
 
-            var pagedList = filmler
-                .OrderByDescending(f => f.FilmId)
+            var pagedList = makaleler
+                .OrderByDescending(f => f.MakaleId)
                 .ToPagedList(page, 20);
 
             return View(pagedList);
         }
         [HttpGet]
-        public IActionResult FilmEkle()
+        public IActionResult MakaleEkle()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult FilmEkle(Film film)
+        public IActionResult MakaleEkle(Makale makale)
         {
             if (ModelState.IsValid)
             {
-                db.Films.Add(film);
+                db.Makales.Add(makale);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(film);
+            return View(makale);
         }
         [HttpGet]
-        public IActionResult FilmSil(int id)
+        public IActionResult MakaleSil(int id)
         {
-            var film = db.Films.Find(id);
-            if (film != null)
+            var makale = db.Makales.Find(id);
+            if (makale != null)
             {
-                db.Films.Remove(film);
+                db.Makales.Remove(makale);
                 db.SaveChanges();
             }
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public IActionResult FilmGuncelle(int id)
+        public IActionResult MakaleGuncelle(int id)
         {
-            var film = db.Films.Find(id);
-            if (film == null)
+            var makale = db.Makales.Find(id);
+            if (makale == null)
             {
                 return NotFound();
             }
-            return View(film);
+            return View(makale);
         }
         [HttpPost]
-        public async Task<IActionResult> FilmGuncelle(Film film)
+        public async Task<IActionResult> MakaleGuncelle(Makale makale)
         {
             if (ModelState.IsValid)
             {
-                db.Films.Update(film);
+                db.Makales.Update(makale);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(film);
+            return View(makale);
         }
     }
 }

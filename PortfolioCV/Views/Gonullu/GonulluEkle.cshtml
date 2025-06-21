@@ -1,0 +1,37 @@
+﻿@model Gonullu
+@{
+    ViewData["Title"] = "GonulluEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="film-form-wrapper">
+    <form asp-action="GonulluEkle" method="post" class="film-form" autocomplete="off">
+        <h2 class="film-form-title">Yeni Gönüllü Çalışma Ekle</h2>
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="film-form-error">Lütfen tüm alanları eksiksiz ve doğru doldurun.</div>
+        }
+        <div class="film-form-group">
+            <label for="KulupAdi">Kurum Adı</label>
+            <input type="text" id="KulupAdi" name="KulupAdi" class="film-form-input" value="@Model?.KulupAdi" required />
+        </div>
+        <div class="film-form-group">
+            <label for="Gorev">Görev</label>
+            <input type="text" id="Gorev" name="Gorev" class="film-form-input" value="@Model?.Gorev" required />
+        </div>
+        <div class="film-form-group">
+            <label for="Yil">Yıl</label>
+            <input type="text" id="Yil" name="Yil" class="film-form-input" value="@Model?.Yil" required />
+        </div>
+        <div class="film-form-group">
+            <label for="KulupLogo">Logo Url</label>
+            <input type="url" id="KulupLogo" name="KulupLogo" class="film-form-input" value="@Model?.KulupLogo" required />
+        </div>
+        <button type="submit" class="film-form-btn">Kaydet</button>
+    </form>
+</div>
+
+
+
+
+

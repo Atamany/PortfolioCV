@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PortfolioCV.DAL.Context;
 
 namespace PortfolioCV.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         PortfolioCVContext db = new PortfolioCVContext();

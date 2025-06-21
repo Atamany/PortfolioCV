@@ -1,0 +1,31 @@
+﻿@model Proje
+@{
+    ViewData["Title"] = "ProjeEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="film-form-wrapper">
+    <form asp-action="ProjeEkle" method="post" class="film-form" autocomplete="off">
+        <h2 class="film-form-title">Yeni Proje Ekle</h2>
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="film-form-error">Lütfen tüm alanları eksiksiz ve doğru doldurun.</div>
+        }
+        <div class="film-form-group">
+            <label for="Baslik">Proje Adı</label>
+            <input type="text" id="Baslik" name="Baslik" class="film-form-input" value="@Model?.Baslik" required />
+        </div>
+        <div class="film-form-group">
+            <label for="ProjeUrl">Proje Url</label>
+            <input type="url" id="ProjeUrl" name="ProjeUrl" class="film-form-input" value="@Model?.ProjeUrl" required />
+        </div>
+        <div class="film-form-group">
+            <label for="ResimUrl">Resim Url</label>
+            <input type="url" id="ResimUrl" name="ResimUrl" class="film-form-input" value="@Model?.ResimUrl" required />
+        </div>
+        <button type="submit" class="film-form-btn">Kaydet</button>
+    </form>
+</div>
+
+
+

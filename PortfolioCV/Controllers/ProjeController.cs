@@ -2,76 +2,75 @@
 using Microsoft.AspNetCore.Mvc;
 using PortfolioCV.DAL.Context;
 using PortfolioCV.DAL.Entities;
-using X.PagedList;
 using X.PagedList.Extensions;
 
 namespace PortfolioCV.Controllers
 {
     [Authorize]
-    public class FilmController : Controller
+    public class ProjeController : Controller
     {
         PortfolioCVContext db = new PortfolioCVContext();
         [HttpGet]
         public IActionResult Index(int page = 1, string search = "")
         {
-            var filmler = db.Films.AsQueryable();
+            var projeler = db.Projes.AsQueryable();
 
             if (!string.IsNullOrEmpty(search))
-                filmler = filmler.Where(f => f.Ad.Contains(search));
+                projeler = projeler.Where(f => f.Baslik.Contains(search));
 
-            var pagedList = filmler
-                .OrderByDescending(f => f.FilmId)
+            var pagedList = projeler
+                .OrderByDescending(f => f.ProjeId)
                 .ToPagedList(page, 20);
 
             return View(pagedList);
         }
         [HttpGet]
-        public IActionResult FilmEkle()
+        public IActionResult ProjeEkle()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult FilmEkle(Film film)
+        public IActionResult ProjeEkle(Proje proje)
         {
             if (ModelState.IsValid)
             {
-                db.Films.Add(film);
+                db.Projes.Add(proje);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(film);
+            return View(proje);
         }
         [HttpGet]
-        public IActionResult FilmSil(int id)
+        public IActionResult ProjeSil(int id)
         {
-            var film = db.Films.Find(id);
-            if (film != null)
+            var proje = db.Projes.Find(id);
+            if (proje != null)
             {
-                db.Films.Remove(film);
+                db.Projes.Remove(proje);
                 db.SaveChanges();
             }
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public IActionResult FilmGuncelle(int id)
+        public IActionResult ProjeGuncelle(int id)
         {
-            var film = db.Films.Find(id);
-            if (film == null)
+            var proje = db.Projes.Find(id);
+            if (proje == null)
             {
                 return NotFound();
             }
-            return View(film);
+            return View(proje);
         }
         [HttpPost]
-        public async Task<IActionResult> FilmGuncelle(Film film)
+        public async Task<IActionResult> ProjeGuncelle(Proje proje)
         {
             if (ModelState.IsValid)
             {
-                db.Films.Update(film);
+                db.Projes.Update(proje);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(film);
+            return View(proje);
         }
     }
 }
