@@ -1,6 +1,6 @@
 <h1> 🚀 Kişisel Pörtfolyo Sayfası</h1>
 <h3>Asp.Net Core ile hazırlanmış, Kişisel Pörtfolyo sayfası.</h3><br />
-
+<a href="https://atamany.com.tr">www.atamany.com.tr</a>
 <h2>Projeye Genel Bakış</h2>
 <p>🖱️ Admin Paneli: CRUD işlemlerine sahip olan admin paneli, kullanıcıların kişisel bilgilerini, projelerini, referanslarını, sosyal medya hesaplarını kolayca girebilecekleri ve güncelleyebilecekleri bir ortam sağlar. <br>👤 Kullanıcı Arayüzü: Şık ve duyarlı bir tasarım, ziyaretçilere CV'nizi etkileyici bir şekilde sunuyor.</p>
 
